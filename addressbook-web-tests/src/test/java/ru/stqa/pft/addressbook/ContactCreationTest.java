@@ -13,10 +13,6 @@ public class ContactCreationTest {
   public void setUp() throws Exception {
     wd = new ChromeDriver();
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-  }
-
-  @Test
-  public void testContactCreation() throws Exception {
     wd.get("http://localhost/addressbook/");
     wd.findElement(By.name("user")).click();
     wd.findElement(By.name("user")).clear();
@@ -25,6 +21,11 @@ public class ContactCreationTest {
     wd.findElement(By.name("pass")).clear();
     wd.findElement(By.name("pass")).sendKeys("secret");
     wd.findElement(By.xpath("//input[@value='Login']")).click();
+  }
+
+  @Test
+  public void testContactCreation() throws Exception {
+
     wd.findElement(By.linkText("add new")).click();
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
@@ -38,7 +39,8 @@ public class ContactCreationTest {
     wd.findElement(By.name("mobile")).click();
     wd.findElement(By.name("mobile")).clear();
     wd.findElement(By.name("mobile")).sendKeys("+79112345678");
-    wd.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]")).click();
+    wd.findElement(By.name("submit")).click();
+    wd.findElement(By.linkText("home page")).click();
     wd.findElement(By.linkText("Logout")).click();
   }
 
