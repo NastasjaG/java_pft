@@ -3,39 +3,13 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import ru.stqa.pft.addressbook.model.ContactData;
-import ru.stqa.pft.addressbook.model.GroupData;
 
-public class GroupHelper extends HelperBase{
-  public GroupHelper(ChromeDriver wd) {
+public class ContactHelper extends HelperBase{
+  public ContactHelper(ChromeDriver wd) {
     super(wd);
   }
-  public void returnToGroupPage() {
-    click(By.linkText("group page"));
-  }
 
-  public void submitGroupCreation() {
-    click(By.name("submit"));
-  }
-
-  public void fillGroupForm(GroupData groupData) {
-    type(By.name("group_name"), groupData.getName());
-    type(By.name("group_header"), groupData.getHeader());
-    type(By.name("group_footer"), groupData.getFooter());
-  }
-
-  public void initGroupCreation() {
-    click(By.name("new"));
-  }
-
-  public void deleteGroups() {
-    click(By.name("delete"));
-  }
-
-  public void selectGroup() {
-    click(By.name("selected[]"));
-  }
-
- /* public void returnToContactPage() {
+   public void returnToContactPage() {
     click(By.linkText("home page"));
   }
 
@@ -64,5 +38,6 @@ public class GroupHelper extends HelperBase{
 
   public void selectContact() {
     click(By.xpath("//tr[4]/td/input"));
-  }*/
+  }
 }
+
