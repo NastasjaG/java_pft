@@ -13,14 +13,6 @@ public class TestBase {
     app.init();
   }
 
-  /*@BeforeMethod(alwaysRun = true)
-  public void setUp() throws Exception {
-    wd = new ChromeDriver();
-    wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    wd.get("http://localhost/addressbook/");
-    login("admin", "secret");
-  }*/
-
   @AfterMethod(alwaysRun = true)
   public void tearDown() throws Exception {
     app.stop();
@@ -30,9 +22,5 @@ public class TestBase {
     return app;
   }
 
-  /*@AfterMethod(alwaysRun = true)
-  public void tearDown() throws Exception {
-    wd.quit();
-  }*/
 
 }

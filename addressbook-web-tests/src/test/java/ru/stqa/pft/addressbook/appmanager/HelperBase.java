@@ -23,18 +23,6 @@ public class HelperBase {
     wd.findElement(locator).sendKeys(text);
   }
 
-
-  /*protected void click(By locator) {
-    wd.findElement(locator).click();
-  }
-
-  protected void firstName(By locator1, String text) {
-    click(locator);
-    wd.findElement(locator1).clear();
-    wd.findElement(locator1).sendKeys(text);
-  }
-}*/
-
   public boolean isAlertPresent() {
     try {
       wd.switchTo().alert();
