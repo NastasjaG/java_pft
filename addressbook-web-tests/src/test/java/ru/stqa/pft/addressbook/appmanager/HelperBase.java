@@ -21,9 +21,12 @@ public class HelperBase {
   protected void type(By locator, String text) {
     click(locator);
     if(text!=null) {
+      String existingText=wd.findElement(locator).getAttribute("value");
+      if (!text.equals(existingText)){
       wd.findElement(locator).clear();
       wd.findElement(locator).sendKeys(text);
     }
+  }
   }
 
   public boolean isAlertPresent() {
@@ -35,11 +38,11 @@ public class HelperBase {
     }
   }
 
-  private boolean isElementPresent(By by) {
+  public boolean isElementPresent(By locator) {
     try {
-      wd.findElement(by);
+      wd.findElement(locator);
       return true;
-    } catch (NoSuchElementException e) {
+    } catch (NoSuchElementException ex) {
       return false;
     }
   }
