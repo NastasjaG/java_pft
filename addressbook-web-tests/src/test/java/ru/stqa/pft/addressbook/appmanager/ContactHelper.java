@@ -7,12 +7,12 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-public class ContactHelper extends HelperBase{
+public class ContactHelper extends HelperBase {
   public ContactHelper(WebDriver wd) {
     super(wd);
   }
 
-   public void returnToContactPage() {
+  public void returnToContactPage() {
     click(By.linkText("home page"));
   }
 
@@ -20,16 +20,16 @@ public class ContactHelper extends HelperBase{
     click(By.name("submit"));
   }
 
-  public void fillContactForm(ContactData contactData,boolean creation) {
+  public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getSecondname());
     type(By.name("company"), contactData.getCompanyname());
     type(By.name("mobile"), contactData.getPhone());
 
-    if (creation){
+    if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
-    }else{
-    Assert.assertFalse (isElementPresent(By.name("new_group")));
+    } else {
+      Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
   }
 
@@ -56,6 +56,17 @@ public class ContactHelper extends HelperBase{
 
   public void updateContactCreation() {
     click(By.name("update"));
+  }
+
+  public void createContact(ContactData contactData, boolean b) {
+    initContactCreation();
+    fillContactForm(contactData, b);
+    submitContactCreation();
+    returnToContactPage();
+  }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.xpath("//tr[4]/td/input"));
   }
 }
 
