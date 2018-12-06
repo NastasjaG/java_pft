@@ -47,11 +47,11 @@ public class ContactHelper extends HelperBase {
   }
 
   public void selectContact() {
-    click(By.xpath("//tr[4]/td/input"));
+    click(By.name("selected[]"));
   }
 
   public void initContactModification() {
-    click(By.xpath("//tr[4]/td[8]/a/img"));
+    click(By.xpath("//img[@alt='Edit']"));
   }
 
   public void updateContactCreation() {
@@ -66,7 +66,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public boolean isThereAContact() {
-    return isElementPresent(By.xpath("//tr[4]/td/input"));
+    return isElementPresent(By.name("selected[]"));
   }
 }
 
