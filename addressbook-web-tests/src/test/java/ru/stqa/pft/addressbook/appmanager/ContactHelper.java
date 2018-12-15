@@ -56,8 +56,8 @@ public class ContactHelper extends HelperBase {
     wd.findElements(By.name("selected[]")).get(index).click();
   }
 
-  public void initContactModification() {
-    click(By.xpath("//img[@alt='Edit']"));
+  public void initContactModification(int index) {
+    wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
   }
 
   public void updateContactCreation() {
@@ -76,16 +76,16 @@ public class ContactHelper extends HelperBase {
   }
 
   public int getContactCount() {
-    return wd.findElements(By.name("selected[]")).size() ;
+    return wd.findElements(By.name("selected[]")).size();
   }
 
   public List<ContactData> getContactList() {
-    List<ContactData> contacts= new ArrayList<ContactData>();
-    List<WebElement> elements=wd.findElements(By.xpath("//table//tr [position() != last()]"));
-    for (WebElement element: elements) {
-      String firstname = element.findElement(By.xpath("//td[3]")).getText();
-      int id = Integer.parseInt(element.findElement(By.xpath("//td[1]/input")).getAttribute("value"));
-      ContactData contact = new ContactData(id,null,null,null,firstname,null);
+    List<ContactData> contacts = new ArrayList<ContactData>();
+    List<WebElement> elements = wd.findElements(By.xpath("//table//tr [position() != 1]"));
+    for (WebElement element : elements) {
+      String firstname = element.findElement(By.xpath("./td[3]")).getText();
+      int id = Integer.parseInt(element.findElement(By.xpath("./td[1]/input")).getAttribute("value"));
+      ContactData contact = new ContactData(id, null, null, null, firstname, null);
       contacts.add(contact);
     }
     return contacts;
