@@ -4,19 +4,17 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
-import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class ContactModificationTests extends TestBase {
 
   @BeforeMethod
   public  void insurePreconditions(){
-    app.getNavigationHelper().gotoHomePage();
-    if (!app.getContactHelper().isThereAContact()) {
-      app.getContactHelper().createContact(new ContactData("Petrova", "Company", "+79112345678", "Julia", "test1"), true);
+    app.goTo().HomePage();
+    if (app.contact().list().size()==0) {
+      app.contact().create(new ContactData("Petrova", "Company", "+79112345678", "Julia", "test1"), true);
     }
   }
 
@@ -24,13 +22,13 @@ public class ContactModificationTests extends TestBase {
 
   public void testContactModification() {
 
-    List<ContactData> before = app.getContactHelper().getContactList();
+    List<ContactData> before = app.contact().list();
     int index = before.size() - 1;
     ContactData contactData = new ContactData(before.get(index).getId(), "Petrova1", "Company", "+79112345678", "Julia", null);
 
-    app.getContactHelper().modifyContact(index, contactData);
+    app.contact().modify(index, contactData);
 
-    List<ContactData> after = app.getContactHelper().getContactList();
+    List<ContactData> after = app.contact().list();
     Assert.assertEquals(after.size(), before.size());
 
     before.remove(index);
