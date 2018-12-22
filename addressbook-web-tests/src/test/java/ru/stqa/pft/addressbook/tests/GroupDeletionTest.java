@@ -15,23 +15,24 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
 
-public class GroupDeletionTest extends TestBase{
+public class GroupDeletionTest extends TestBase {
 
   @BeforeMethod
-  public  void insurePreconditions(){
+  public void insurePreconditions() {
     app.goTo().GroupPage();
-    if (app.group().all().size()==0) {
+    if (app.group().all().size() == 0) {
       app.group().create(new GroupData().withName("test1"));
     }
   }
+
   @Test
   public void testGroupDeletion() throws Exception {
 
-    Groups before=app.group().all();
+    Groups before = app.group().all();
     GroupData detetedGroup = before.iterator().next();
     app.group().delete(detetedGroup);
-        Groups after=app.group().all();
-    assertEquals(after.size(),before.size()-1);
+    Groups after = app.group().all();
+    assertEquals(after.size(), before.size() - 1);
 
     assertThat(after, equalTo(before.without(detetedGroup)));
   }

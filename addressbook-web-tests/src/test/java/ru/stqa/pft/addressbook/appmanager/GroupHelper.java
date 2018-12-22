@@ -11,10 +11,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class GroupHelper extends HelperBase{
+public class GroupHelper extends HelperBase {
   public GroupHelper(WebDriver wd) {
     super(wd);
   }
+
   public void returnToGroupPage() {
     click(By.linkText("group page"));
   }
@@ -38,7 +39,7 @@ public class GroupHelper extends HelperBase{
   }
 
   public void selectGroupById(int id) {
-    wd.findElement(By.cssSelector("input[value='"+ id +"']")).click();
+    wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
 
 
@@ -56,6 +57,7 @@ public class GroupHelper extends HelperBase{
     submitGroupCreation();
     returnToGroupPage();
   }
+
   public void modify(GroupData group) {
     selectGroupById(group.getId());
     initGroupModification();
@@ -82,11 +84,10 @@ public class GroupHelper extends HelperBase{
   }
 
 
-
   public Groups all() {
     Groups groups = new Groups();
-    List<WebElement> elements=wd.findElements(By.cssSelector("span.group"));
-    for (WebElement element: elements){
+    List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
+    for (WebElement element : elements) {
       String name = element.getText();
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
       groups.add(new GroupData().withId(id).withName(name));
