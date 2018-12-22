@@ -3,15 +3,13 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import org.testng.xml.dom.Tag;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-import javax.xml.soap.Text;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends HelperBase {
   public ContactHelper(WebDriver wd) {
@@ -56,8 +54,14 @@ public class ContactHelper extends HelperBase {
     wd.findElements(By.name("selected[]")).get(index).click();
   }
 
-  public void initContactModification(int index) {
-    wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
+  public void selectContactById(int id) {
+    wd.findElement(By.cssSelector("input[value = '" + id + "']")).click();
+  }
+
+  public void initContactModification(int id) {
+   // wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
+    wd.findElement(By.cssSelector("input[value = '" + id + "']"))
+            .findElement(By.xpath("../..")).findElement(By.xpath("//img[@alt='Edit']")).click();
   }
 
   public void updateContactCreation() {
@@ -71,19 +75,21 @@ public class ContactHelper extends HelperBase {
     returnToContactPage();
   }
 
-  public void modify(int index, ContactData contactData) {
-    selectContact(index);
-    initContactModification(index);
+  public void modify(ContactData contactData) {
+    selectContactById(contactData.getId());
+    initContactModification(contactData.getId());
     fillContactForm(contactData, false);
     updateContactCreation();
     returnToContactPage();
   }
 
-  public void delete(int index) {
-    selectContact(index);
+
+  public void delete(ContactData contact) {
+    selectContactById(contact.getId());
     deleteSelectedContact();
     acceptDeletionAlert();
   }
+
   public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
   }
@@ -92,8 +98,8 @@ public class ContactHelper extends HelperBase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
-  public List<ContactData> list() {
-    List<ContactData> contacts = new ArrayList<ContactData>();
+  public Set<ContactData> all() {
+    Set<ContactData> contacts = new HashSet<ContactData>();
     List<WebElement> elements = wd.findElements(By.xpath("//table//tr [position() != 1]"));
     for (WebElement element : elements) {
       String firstname = element.findElement(By.xpath("./td[3]")).getText();
@@ -102,5 +108,7 @@ public class ContactHelper extends HelperBase {
     }
     return contacts;
   }
+
+
 }
 
