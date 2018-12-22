@@ -7,11 +7,11 @@ import ru.stqa.pft.addressbook.model.ContactData;
 import java.util.Comparator;
 import java.util.List;
 public class ContactCreationTest extends TestBase {
-  @Test(enabled = false)
+  @Test(enabled = true)
   public void testContactCreation() throws Exception {
     app.goTo().HomePage();
     List<ContactData> before=app.contact().list();
-    ContactData contactData = new ContactData("Petrova", "Company", "+79112345678", "Julia","test1");
+    ContactData contactData = new ContactData().withSecondname("Petrova").withCompanyname("Company").withPhone("+79112345678").withFirstname("Julia").withGroup("test1");
     app.contact().create(contactData, true);
     List<ContactData> after=app.contact().list();
     Assert.assertEquals(after.size(), before.size() +1);
