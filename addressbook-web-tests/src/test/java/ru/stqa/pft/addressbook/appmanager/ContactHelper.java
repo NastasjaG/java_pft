@@ -26,10 +26,24 @@ public class ContactHelper extends HelperBase {
   }
 
   public void fillContactForm(ContactData contactData, boolean creation) {
-    type(By.name("firstname"), contactData.getFirstname());
-    type(By.name("lastname"), contactData.getSecondname());
-    type(By.name("company"), contactData.getCompanyname());
-    type(By.name("mobile"), contactData.getPhone());
+    if (contactData.getFirstname()!=null)  {
+      type(By.name("firstname"), contactData.getFirstname());
+    }
+    if (contactData.getSecondname()!=null) {
+      type(By.name("lastname"), contactData.getSecondname());
+    }
+    if (contactData.getCompanyname()!=null) {
+      type(By.name("company"), contactData.getCompanyname());
+    }
+    if (contactData.getPhone()!=null) {
+      type(By.name("home"), contactData.getPhone());
+    }
+    if (contactData.getMobilePhone()!=null) {
+      type(By.name("mobile"), contactData.getMobilePhone());
+    }
+    if (contactData.getWorkPhone()!=null) {
+      type(By.name("work"), contactData.getWorkPhone());
+    }
 
     if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
@@ -103,13 +117,31 @@ public class ContactHelper extends HelperBase {
     Contacts contacts = new Contacts();
     List<WebElement> elements = wd.findElements(By.xpath("//table//tr [position() != 1]"));
     for (WebElement element : elements) {
+      List<WebElement> cells = element.findElements(By.tagName("td"));
       String firstname = element.findElement(By.xpath("./td[3]")).getText();
+      String secondname = cells.get(1).getText();
+      String[] phones = cells.get(5).getText().split("\n");
       int id = Integer.parseInt(element.findElement(By.xpath("./td[1]/input")).getAttribute("value"));
-      contacts.add(new ContactData().withId(id).withFirstname(firstname));
+      if (phones.length > 2) {
+        contacts.add(new ContactData().withId(id).withFirstname(firstname).withSecondname(secondname)
+                .withPhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]));
+      }
+
     }
     return contacts;
   }
 
-
+public ContactData contactInfoFromEditForm(ContactData contactData){
+  selectContactById(contactData.getId());
+  initContactModification(contactData.getId());
+  String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
+  String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
+  String home = wd.findElement(By.name("home")).getAttribute("value");
+  String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
+  String work = wd.findElement(By.name("work")).getAttribute("value");
+wd.navigate().back();
+return new ContactData().withId(contactData.getId()).withFirstname(firstname)
+        .withSecondname(lastname).withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
+}
 }
 
