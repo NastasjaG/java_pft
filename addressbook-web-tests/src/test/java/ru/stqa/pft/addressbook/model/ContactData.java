@@ -10,7 +10,37 @@ public class ContactData {
   private String homePhone;
   private String mobilePhone;
   private String workPhone;
+  private String allPhones;
 
+  public String getAddress() {
+    return address;
+  }
+
+  public ContactData withAddress(String address) {
+    this.address = address;
+    return this;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public ContactData withEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+  private String address;
+  private String email;
+
+  public String getAllPhones() {
+    return allPhones;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
 
   public ContactData withId(int id) {
     this.id = id;
@@ -94,6 +124,15 @@ public class ContactData {
   }
 
   @Override
+  public String toString() {
+    return "ContactData{" +
+            "id='" + id + '\'' +
+            ", firstname='" + firstname + '\'' +
+            '}';
+
+  }
+
+  @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
@@ -101,22 +140,15 @@ public class ContactData {
     ContactData that = (ContactData) o;
 
     if (id != that.id) return false;
+    if (secondname != null ? !secondname.equals(that.secondname) : that.secondname != null) return false;
     return firstname != null ? firstname.equals(that.firstname) : that.firstname == null;
   }
 
   @Override
   public int hashCode() {
     int result = id;
+    result = 31 * result + (secondname != null ? secondname.hashCode() : 0);
     result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
     return result;
-  }
-
-  @Override
-  public String toString() {
-    return "ContactData{" +
-            "id='" + id + '\'' +
-            ", firstname='" + firstname + '\'' +
-            '}';
-
   }
 }
