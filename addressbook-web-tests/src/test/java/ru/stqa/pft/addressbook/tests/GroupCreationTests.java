@@ -62,7 +62,7 @@ public class GroupCreationTests extends TestBase {
   public void testBadGroupCreationheader() throws Exception {
     app.goTo().GroupPage();
     Groups before = app.group().all();
-    GroupData group = new GroupData().withName("test2'");
+    GroupData group = new GroupData().withName(app.getProperties().getProperty("badGroupCreationheader"));
     app.group().create(group);
     assertThat(app.group().count(), equalTo(before.size()));
     Groups after = app.group().all();

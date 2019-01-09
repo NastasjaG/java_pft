@@ -1,0 +1,20 @@
+[
+  {
+    "secondname": "secondname 0",
+    "companyname": "company 0",
+    "firstname": "firstname 0",
+    "group": "group 0"
+  },
+  {
+    "secondname": "secondname 1",
+    "companyname": "company 1",
+    "firstname": "firstname 1",
+    "group": "group 1"
+  },
+  {
+    "secondname": "secondname 2",
+    "companyname": "company 2",
+    "firstname": "firstname 2",
+    "group": "group 2"
+  }
+]

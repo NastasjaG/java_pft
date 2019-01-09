@@ -19,16 +19,16 @@ public class AddressAndEmailTest extends TestBase{
     Contacts before = app.contact().all();
     for(ContactData contactData:before) {
       if (contactData.getAddress() == null||contactData.getAddress().isEmpty()) {
-        contactData.withAddress("Prospect Mira 9/4 kv85");
+        contactData.withAddress(app.getProperties().getProperty("valid.address"));
       }
       if (contactData.getEmail1() == null||contactData.getEmail1().isEmpty()) {
-        contactData.withEmail1("PetrovaJ1@mail.ru");
+        contactData.withEmail1(app.getProperties().getProperty("valid.email1"));
       }
       if (contactData.getEmail2() == null||contactData.getEmail2().isEmpty()) {
-        contactData.withEmail2("PetrovaJ2@mail.ru");
+        contactData.withEmail2(app.getProperties().getProperty("valid.email2"));
       }
       if (contactData.getEmail3() == null||contactData.getEmail3().isEmpty()) {
-        contactData.withEmail3("PetrovaJ3@mail.ru");
+        contactData.withEmail3(app.getProperties().getProperty("valid.email3"));
       }
       app.contact().modify(contactData);
     }

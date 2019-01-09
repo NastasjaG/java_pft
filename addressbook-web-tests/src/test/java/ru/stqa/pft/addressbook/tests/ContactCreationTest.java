@@ -83,7 +83,8 @@ public class ContactCreationTest extends TestBase{
   public void testBadContactCreationheader() throws Exception {
     app.goTo().HomePage();
     Contacts before = app.contact().all();
-    ContactData contact = new ContactData().withFirstname("@Julia'").withGroup("test 1");
+    ContactData contact = new ContactData().withFirstname(app.getProperties().getProperty("notValid.firstName"))
+            .withGroup(app.getProperties().getProperty("notValid.group"));
     app.contact().create(contact,true);
     assertThat(app.contact().getContactCount(), equalTo(before.size()));
     Contacts after = app.contact().all();

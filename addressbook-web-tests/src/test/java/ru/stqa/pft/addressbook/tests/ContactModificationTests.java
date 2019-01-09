@@ -15,7 +15,11 @@ public class ContactModificationTests extends TestBase {
   public void insurePreconditions() {
     app.goTo().HomePage();
     if (app.contact().all().size() == 0) {
-      app.contact().create(new ContactData().withSecondname("Petrova").withCompanyname("Company").withPhone("+79112345678").withFirstname("Julia").withGroup("test1"), true);
+      app.contact().create(new ContactData().withSecondname(app.getProperties().getProperty("valid.secondname"))
+              .withCompanyname(app.getProperties().getProperty("valid.companyname"))
+              .withPhone(app.getProperties().getProperty("valid.phone"))
+              .withFirstname(app.getProperties().getProperty("valid.firstname"))
+              .withGroup(app.getProperties().getProperty("valid.group")), true);
     }
   }
 
@@ -27,7 +31,11 @@ public class ContactModificationTests extends TestBase {
     ContactData modifiedContact = before.iterator().next();
 
     ContactData contactData = new ContactData()
-            .withId(modifiedContact.getId()).withSecondname("Petrova_mod").withCompanyname("Company").withPhone("+79112345678").withFirstname("Julia_mod");
+            .withId(modifiedContact.getId())
+            .withSecondname(app.getProperties().getProperty("validModif.secondname"))
+            .withCompanyname(app.getProperties().getProperty("validModif.companyname"))
+            .withPhone(app.getProperties().getProperty("validModif.phone"))
+            .withFirstname(app.getProperties().getProperty("validModif.firstname"));
 
     app.contact().modify(contactData);
 

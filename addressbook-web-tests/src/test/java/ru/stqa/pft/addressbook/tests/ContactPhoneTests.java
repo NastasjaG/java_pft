@@ -19,10 +19,10 @@ public class ContactPhoneTests extends TestBase{
     Contacts before = app.contact().all();
     for(ContactData contactData:before) {
       if (contactData.getMobilePhone() == null) {
-        contactData.withMobilePhone("12345");
+        contactData.withMobilePhone(app.getProperties().getProperty("mobilePhone"));
       }
       if (contactData.getWorkPhone() == null) {
-        contactData.withWorkPhone("67890");
+        contactData.withWorkPhone(app.getProperties().getProperty("workPhone"));
       }
       app.contact().modify(contactData);
 
