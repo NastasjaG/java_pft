@@ -72,22 +72,22 @@ public class ContactCreationTest extends TestBase{
   @Test (dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) throws Exception {
     app.goTo().HomePage();
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     app.contact().create(contact, true);
     assertThat(app.contact().getContactCount(), equalTo(before.size() + 1));
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
     assertThat(after, equalTo(
             before.withAdded(contact.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
   }
   @Test
   public void testBadContactCreationheader() throws Exception {
     app.goTo().HomePage();
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     ContactData contact = new ContactData().withFirstname(app.getProperties().getProperty("notValid.firstName"))
             .withGroup(app.getProperties().getProperty("notValid.group"));
     app.contact().create(contact,true);
     assertThat(app.contact().getContactCount(), equalTo(before.size()));
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
     assertThat(after.size(), equalTo(before.size()));
     assertThat(after, equalTo(before));
   }

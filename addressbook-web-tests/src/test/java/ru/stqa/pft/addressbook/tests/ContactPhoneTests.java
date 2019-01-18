@@ -24,6 +24,7 @@ public class ContactPhoneTests extends TestBase{
       if (contactData.getWorkPhone() == null) {
         contactData.withWorkPhone(app.getProperties().getProperty("workPhone"));
       }
+
       app.contact().modify(contactData);
 
     }

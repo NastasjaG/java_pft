@@ -14,7 +14,7 @@ public class ContactModificationTests extends TestBase {
   @BeforeMethod
   public void insurePreconditions() {
     app.goTo().HomePage();
-    if (app.contact().all().size() == 0) {
+    if (app.db().contacts().size()== 0) {
       app.contact().create(new ContactData().withSecondname(app.getProperties().getProperty("valid.secondname"))
               .withCompanyname(app.getProperties().getProperty("valid.companyname"))
               .withPhone(app.getProperties().getProperty("valid.phone"))
@@ -27,7 +27,7 @@ public class ContactModificationTests extends TestBase {
 
   public void testContactModification() {
 
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     ContactData modifiedContact = before.iterator().next();
 
     ContactData contactData = new ContactData()
@@ -39,7 +39,7 @@ public class ContactModificationTests extends TestBase {
 
     app.contact().modify(contactData);
 
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
     assertEquals(after.size(), before.size());
 
     assertThat(after, equalTo(before.without(modifiedContact).withAdded(contactData)));

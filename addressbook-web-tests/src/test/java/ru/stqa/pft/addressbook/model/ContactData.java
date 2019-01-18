@@ -57,6 +57,10 @@ public class ContactData {
   @Transient
   private String allEmails;
 
+  @Column(name = "photo")
+  @Type(type = "text")
+  private String photo;
+
 
   public String getEmail2() {
     return email2;
@@ -87,16 +91,21 @@ public class ContactData {
 
 
   public File getPhoto() {
-    return new File (photo);
+    if (photo!=null) {
+      return new File(photo);
+    }
+    return null;
+  }
+
+  public void setPhoto(String photo) {
+    this.photo = photo;
   }
 
   public ContactData withPhoto(File photo) {
     this.photo = photo.getPath();
     return this;
   }
-  @Column(name = "photo")
-  @Type(type = "text")
-  private String photo;
+
 
   public String getAddress() {
     return address;
@@ -210,15 +219,6 @@ public class ContactData {
   }
 
   @Override
-  public String toString() {
-    return "ContactData{" +
-            "id='" + id + '\'' +
-            ", firstname='" + firstname + '\'' +
-            '}';
-
-  }
-
-  @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
@@ -227,6 +227,7 @@ public class ContactData {
 
     if (id != that.id) return false;
     if (secondname != null ? !secondname.equals(that.secondname) : that.secondname != null) return false;
+    if (companyname != null ? !companyname.equals(that.companyname) : that.companyname != null) return false;
     return firstname != null ? firstname.equals(that.firstname) : that.firstname == null;
   }
 
@@ -234,7 +235,19 @@ public class ContactData {
   public int hashCode() {
     int result = id;
     result = 31 * result + (secondname != null ? secondname.hashCode() : 0);
+    result = 31 * result + (companyname != null ? companyname.hashCode() : 0);
     result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
     return result;
   }
+
+  @Override
+
+  public String toString() {
+    return "ContactData{" +
+            "id='" + id + '\'' +
+            ", firstname='" + firstname + '\'' +
+            '}';
+
+  }
+
 }

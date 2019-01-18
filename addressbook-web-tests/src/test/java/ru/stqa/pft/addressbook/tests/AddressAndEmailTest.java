@@ -16,8 +16,9 @@ public class AddressAndEmailTest extends TestBase{
   @BeforeMethod
   public void insurePreconditions() {
     app.goTo().HomePage();
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     for(ContactData contactData:before) {
+      contactData.setPhoto(null);
       if (contactData.getAddress() == null||contactData.getAddress().isEmpty()) {
         contactData.withAddress(app.getProperties().getProperty("valid.address"));
       }
