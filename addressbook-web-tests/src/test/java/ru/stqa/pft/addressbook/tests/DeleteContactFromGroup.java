@@ -5,6 +5,9 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.GroupData;
 
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
 public class DeleteContactFromGroup extends TestBase {
 
   @BeforeMethod
@@ -21,12 +24,17 @@ public class DeleteContactFromGroup extends TestBase {
   }
 
     @Test
-  public void addContactToGroup(){
+  public void deleteContactFromGroup(){
     app.goTo().HomePage();
       ContactData contactData = app.db().contactInGroup();
       GroupData groupData = contactData.getGroups().iterator().next();
       app.contact().getGroupData(groupData);
+      app.contact().selectContactNotInGroup(contactData);
       app.contact().pushButtonRemoveFromGroup();
       app.goTo().HomePage();
+      ContactData contactData1 = app.db().contactById(contactData.getId());
+      assertFalse( contactData1.getGroups().contains(groupData));
+
+
     }
 }

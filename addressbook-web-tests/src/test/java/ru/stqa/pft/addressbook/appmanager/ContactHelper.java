@@ -223,5 +223,8 @@ public class ContactHelper extends HelperBase {
   }
 
 
+  public void selectGroup(GroupData group) {
+    wd.findElement(By.xpath(String.format("//select[@name='to_group']/option[@value='%s']", group.getId()))).click();
+  }
 }
 

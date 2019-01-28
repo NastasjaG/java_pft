@@ -4,6 +4,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
+
+import static org.testng.Assert.assertTrue;
 
 public class AddContactToGroup extends TestBase {
 
@@ -22,12 +25,14 @@ public class AddContactToGroup extends TestBase {
     @Test
   public void addContactToGroup(){
     app.goTo().HomePage();
-   //app.contact().filterContactsNotInGroup();
-     // app.contact().selectContactNotInGroup();
-
+ 
       ContactData contactData = app.db().contactNotInGroup();
       app.contact().selectContactNotInGroup(contactData);
-
+      Groups groups = app.db().groups();
+      GroupData group = groups.iterator().next();
+      app.contact().selectGroup(group);
       app.contact().pushButtonAddToGroup();
+      ContactData contactData1 = app.db().contactById(contactData.getId());
+      assertTrue( contactData1.getGroups().contains(group));
   }
 }
