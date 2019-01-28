@@ -23,6 +23,7 @@ public class ApplicationManager {
   private FtpHelper ftp;
   private MailHelper mailHelper;
   private JamesHelper jamesHelper;
+  private DbHelper dbHelper;
 
 
   public ApplicationManager(String browser) {
@@ -33,7 +34,13 @@ public class ApplicationManager {
   public void init() throws IOException {
     String target = System.getProperty("target", "local");
     properties.load(new FileReader(new File(String.format("src/main/resources/%s.properties", target))));
+
+    dbHelper = new DbHelper();
+
   }
+
+
+
 
   public Properties getProperties() {
     return properties;
@@ -50,7 +57,7 @@ public class ApplicationManager {
     wd.findElement(By.linkText("Logout")).click();
   }
 
-  public HttpSession newSession(){
+  public HttpSession newSession() {
     return new HttpSession(this);
   }
 
@@ -73,7 +80,7 @@ public class ApplicationManager {
   }
 
   public WebDriver getDriver() {
-    if(wd==null)
+    if (wd == null)
 
       if (browser.equals(BrowserType.CHROME)) {
         wd = new ChromeDriver();
@@ -94,16 +101,20 @@ public class ApplicationManager {
   }
 
   public MailHelper mail() {
-    if (mailHelper ==null) {
+    if (mailHelper == null) {
       mailHelper = new MailHelper(this);
     }
     return mailHelper;
   }
 
-  public JamesHelper james(){
-    if (jamesHelper == null){
+  public JamesHelper james() {
+    if (jamesHelper == null) {
       jamesHelper = new JamesHelper(this);
     }
     return jamesHelper;
+  }
+
+  public DbHelper db() {
+    return dbHelper;
   }
 }
