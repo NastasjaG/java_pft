@@ -25,7 +25,7 @@ public class AddContactToGroup extends TestBase {
     @Test
   public void addContactToGroup(){
     app.goTo().HomePage();
- 
+
       ContactData contactData = app.db().contactNotInGroup();
       app.contact().selectContactNotInGroup(contactData);
       Groups groups = app.db().groups();
