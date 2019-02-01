@@ -14,7 +14,7 @@ public class ContactModificationTests extends TestBase {
   @BeforeMethod
   public void insurePreconditions() {
     app.goTo().HomePage();
-    if (app.db().contacts().size()== 0) {
+    if (app.db().contacts().size() == 0) {
       app.contact().create(new ContactData().withSecondname(app.getProperties().getProperty("valid.secondname"))
               .withCompanyname(app.getProperties().getProperty("valid.companyname"))
               .withPhone(app.getProperties().getProperty("valid.phone"))

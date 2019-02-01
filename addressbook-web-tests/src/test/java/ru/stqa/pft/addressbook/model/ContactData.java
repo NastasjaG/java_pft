@@ -78,9 +78,10 @@ public class ContactData {
     return this;
   }
 
-  public String getGroup(){
+  public String getGroup() {
     return group;
   }
+
   public ContactData withEmail2(String email2) {
     this.email2 = email2;
     return this;
@@ -92,7 +93,7 @@ public class ContactData {
 
   public ContactData withEmail3(String email3) {
     this.email3 = email3;
-    return  this;
+    return this;
   }
 
   public String getAllEmails() {
@@ -106,7 +107,7 @@ public class ContactData {
 
 
   public File getPhoto() {
-    if (photo!=null) {
+    if (photo != null) {
       return new File(photo);
     }
     return null;
@@ -139,8 +140,6 @@ public class ContactData {
     this.email1 = email1;
     return this;
   }
-
-
 
 
   public String getAllPhones() {
@@ -177,7 +176,7 @@ public class ContactData {
     return this;
   }
 
-    public ContactData withHomePhone(String homePhone) {
+  public ContactData withHomePhone(String homePhone) {
     this.homePhone = homePhone;
     return this;
   }

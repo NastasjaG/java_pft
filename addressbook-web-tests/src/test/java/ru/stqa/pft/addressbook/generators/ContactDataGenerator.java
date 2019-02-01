@@ -17,22 +17,22 @@ import java.util.List;
 
 public class ContactDataGenerator {
 
-  @Parameter(names = "-c", description = "Contact count" )
+  @Parameter(names = "-c", description = "Contact count")
   public int count;
 
-  @Parameter(names = "-f", description = "Target file" )
+  @Parameter(names = "-f", description = "Target file")
   public String file;
 
-  @Parameter(names = "-d", description = "Data format" )
+  @Parameter(names = "-d", description = "Data format")
   public String format;
 
   public static void main(String[] args) throws IOException {
     ContactDataGenerator generator = new ContactDataGenerator();
     JCommander jCommander = new JCommander(generator);
-    new JCommander(generator,args);
+    new JCommander(generator, args);
     try {
       jCommander.parse(args);
-    }catch (ParameterException ex) {
+    } catch (ParameterException ex) {
       jCommander.usage();
       return;
     }
@@ -42,22 +42,22 @@ public class ContactDataGenerator {
 
   private void run() throws IOException {
     List<ContactData> contacts = generateContacts(count);
-   if (format.equals("csv")) {
-     saveAsCsv(contacts, new File(file));
-   }else if (format.equals("xml")) {
+    if (format.equals("csv")) {
+      saveAsCsv(contacts, new File(file));
+    } else if (format.equals("xml")) {
       saveAsXml(contacts, new File(file));
     } else if (format.equals("json")) {
       saveAsJson(contacts, new File(file));
 
-    }else{
-      System.out.println ("Unrecognized format" + format);
+    } else {
+      System.out.println("Unrecognized format" + format);
     }
   }
 
   private void saveAsJson(List<ContactData> contacts, File file) throws IOException {
     Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
     String json = gson.toJson(contacts);
-    try(    Writer writer = new FileWriter(file)    ) {
+    try (Writer writer = new FileWriter(file)) {
       writer.write(json);
     }
   }
@@ -66,25 +66,26 @@ public class ContactDataGenerator {
     XStream xstream = new XStream();
     xstream.processAnnotations(ContactData.class);
     String xml = xstream.toXML(contacts);
-    try (    Writer writer = new FileWriter(file)    ) {
+    try (Writer writer = new FileWriter(file)) {
       writer.write(xml);
     }
   }
 
   private void saveAsCsv(List<ContactData> contacts, File file) throws IOException {
     System.out.println(new File(".").getAbsolutePath());
-    try (Writer writer = new FileWriter(file)){
-    for (ContactData contactdata: contacts){
-      writer.write(String.format("%s;%s;%s;%s\n",contactdata.getSecondname()
-              ,contactdata.getCompanyname()
-              ,contactdata.getFirstname()
-              ,contactdata.getGroup()));
+    try (Writer writer = new FileWriter(file)) {
+      for (ContactData contactdata : contacts) {
+        writer.write(String.format("%s;%s;%s;%s\n", contactdata.getSecondname()
+                , contactdata.getCompanyname()
+                , contactdata.getFirstname()
+                , contactdata.getGroup()));
+      }
     }
-  }}
+  }
 
   private List<ContactData> generateContacts(int count) {
     List<ContactData> contacts = new ArrayList<ContactData>();
-    for(int i = 0; i<count; i++){
+    for (int i = 0; i < count; i++) {
       contacts.add(new ContactData().withSecondname(String.format("secondname %s", i))
               .withCompanyname(String.format("company %s", i)).withFirstname(String.format("firstname %s", i))
               .withGroup(String.format("test %s", i)));

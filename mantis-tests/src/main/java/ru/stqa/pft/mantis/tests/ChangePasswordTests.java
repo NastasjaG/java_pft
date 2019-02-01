@@ -18,10 +18,9 @@ public class ChangePasswordTests extends TestBase {
   public void testLogin() throws Exception {
     app.registration().login("administrator", "root");
     app.registration().showUserList();
-    app.registration().selectUser("10");
-    app.registration().clickChangePassword();
-
     MantisUser mantisUser = app.db().mantisUser();
+    app.registration().selectUser(String.valueOf(mantisUser.getId()));
+    app.registration().clickChangePassword();
 
     String userName = mantisUser.getUsername();
     boolean userExist = app.james().doesUserExist(userName);

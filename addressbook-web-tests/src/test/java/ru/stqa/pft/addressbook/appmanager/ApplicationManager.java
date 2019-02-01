@@ -33,7 +33,7 @@ public class ApplicationManager {
   }
 
   public void init() throws IOException {
-    String target = System.getProperty("target","local");
+    String target = System.getProperty("target", "local");
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
 
     dbHelper = new DbHelper();
@@ -59,7 +59,7 @@ public class ApplicationManager {
     sessionHelper = new SessionHelper(wd);
     contactHelper = new ContactHelper(wd);
     //sessionHelper.login("user", "pass", By.xpath("//input[@value='Login']"), "admin", "secret");
-    sessionHelper.login(properties.getProperty("web.adminLogin"),properties.getProperty("web.adminPassword"));
+    sessionHelper.login(properties.getProperty("web.adminLogin"), properties.getProperty("web.adminPassword"));
 
   }
 
@@ -89,7 +89,7 @@ public class ApplicationManager {
     return navigationHelper;
   }
 
- public DbHelper db(){
+  public DbHelper db() {
     return dbHelper;
   }
 }

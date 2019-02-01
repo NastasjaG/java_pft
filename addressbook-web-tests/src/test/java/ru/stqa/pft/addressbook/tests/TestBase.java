@@ -24,31 +24,33 @@ public class TestBase {
 
 
   protected static final ApplicationManager app
-          = new ApplicationManager(System.getProperty("browser",BrowserType.CHROME));
+          = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
 
   @BeforeSuite(alwaysRun = true)
   public void setUp() throws Exception {
     app.init();
   }
 
-    @AfterSuite(alwaysRun = true)
-    public void tearDown() throws Exception {
-      app.stop();
+  @AfterSuite(alwaysRun = true)
+  public void tearDown() throws Exception {
+    app.stop();
   }
 
   public ApplicationManager getApp() {
     return app;
   }
 
- @BeforeMethod
-  public void logTestStart(Method m, Object[] p){
-   logger.info("Start test" +m.getName() + " with parameters " + Arrays.asList(p));
- }
+  @BeforeMethod
+  public void logTestStart(Method m, Object[] p) {
+    logger.info("Start test" + m.getName() + " with parameters " + Arrays.asList(p));
+  }
+
   @AfterMethod(alwaysRun = true)
   public void logTestStop(Method m) {
     logger.info("Stop test" + m.getName());
   }
-    public void verifyGroupListInUI() {
+
+  public void verifyGroupListInUI() {
     if (Boolean.getBoolean("verifyUI")) {
       Groups dbGroups = app.db().groups();
       Groups uiGroups = app.group().all();
@@ -56,7 +58,7 @@ public class TestBase {
               .map((g) -> new GroupData().withId(g.getId()).withName(g.getName()))
               .collect(toSet())));
     }
-    }
+  }
 
 
 }

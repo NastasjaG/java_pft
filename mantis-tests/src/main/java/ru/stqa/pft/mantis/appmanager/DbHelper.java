@@ -24,7 +24,7 @@ public class DbHelper {
   public MantisUser mantisUser(){
     Session session = sessionFactory.openSession();
     session.beginTransaction();
-    MantisUser result =(MantisUser) session.createQuery("from MantisUser where username = 'user1548619679425' ").list().get(0);
+    MantisUser result =(MantisUser) session.createQuery("from MantisUser where email like '%@localhost' and username <> 'administrator' ").list().get(0);
     session.getTransaction().commit();
     session.close();
     return result;

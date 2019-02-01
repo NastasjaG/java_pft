@@ -14,7 +14,7 @@ public class AddContactToGroup extends TestBase {
   public void insurePreconditions() {
     app.goTo().HomePage();
     app.contact().filterContactsNotInGroup();
-    if (app.contact().all().size()== 0) {
+    if (app.contact().all().size() == 0) {
       app.contact().createContactWithoutGroup(new ContactData().withSecondname(app.getProperties().getProperty("contactForGroup.secondname"))
               .withCompanyname(app.getProperties().getProperty("contactForGroup.companyname"))
               .withPhone(app.getProperties().getProperty("contactForGroup.phone"))
@@ -22,17 +22,17 @@ public class AddContactToGroup extends TestBase {
     }
   }
 
-    @Test
-  public void addContactToGroup(){
+  @Test
+  public void addContactToGroup() {
     app.goTo().HomePage();
 
-      ContactData contactData = app.db().contactNotInGroup();
-      app.contact().selectContactNotInGroup(contactData);
-      Groups groups = app.db().groups();
-      GroupData group = groups.iterator().next();
-      app.contact().selectGroup(group);
-      app.contact().pushButtonAddToGroup();
-      ContactData contactData1 = app.db().contactById(contactData.getId());
-      assertTrue( contactData1.getGroups().contains(group));
+    ContactData contactData = app.db().contactNotInGroup();
+    app.contact().selectContactNotInGroup(contactData);
+    Groups groups = app.db().groups();
+    GroupData group = groups.iterator().next();
+    app.contact().selectGroup(group);
+    app.contact().pushButtonAddToGroup();
+    ContactData contactData1 = app.db().contactById(contactData.getId());
+    assertTrue(contactData1.getGroups().contains(group));
   }
 }

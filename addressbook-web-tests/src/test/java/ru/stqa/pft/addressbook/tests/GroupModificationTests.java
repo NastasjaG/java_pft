@@ -20,12 +20,12 @@ public class GroupModificationTests extends TestBase {
 
   @BeforeMethod
   public void insurePreconditions() {
-    if (app.db().groups().size()==0){
+    if (app.db().groups().size() == 0) {
       app.goTo().GroupPage();
       app.group().create(new GroupData().withName(app.getProperties().getProperty("valid.group")));
 
     }
-     }
+  }
 
   @Test
   public void testGroupModification() {
@@ -35,8 +35,8 @@ public class GroupModificationTests extends TestBase {
 
     GroupData group = new GroupData()
             .withId(modifiedGroup.getId()).withName(app.getProperties().getProperty("valid.groupName"))
-                    .withHeader(app.getProperties().getProperty("valid.groupHeader"))
-                    .withFooter(app.getProperties().getProperty("valid.groupFooter"));
+            .withHeader(app.getProperties().getProperty("valid.groupHeader"))
+            .withFooter(app.getProperties().getProperty("valid.groupFooter"));
     app.goTo().GroupPage();
 
     app.group().modify(group);

@@ -37,7 +37,7 @@ public class GroupData {
   private String footer;
 
   @ManyToMany(mappedBy = "groups")
-  private Set<ContactData> contacts = new HashSet <ContactData>();
+  private Set<ContactData> contacts = new HashSet<ContactData>();
 
   public Set<ContactData> getContacts() {
     return contacts;

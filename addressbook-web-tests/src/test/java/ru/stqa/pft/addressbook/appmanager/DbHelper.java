@@ -16,25 +16,26 @@ public class DbHelper {
 
   private final SessionFactory sessionFactory;
 
-  public DbHelper(){
+  public DbHelper() {
 
     // A SessionFactory is set up once for an application!
 
     final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
             .configure() // configures settings from hibernate.cfg.xml
             .build();
-       sessionFactory = new MetadataSources( registry ).buildMetadata().buildSessionFactory();
+    sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
   }
-  public Groups groups(){
+
+  public Groups groups() {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     List<GroupData> result = session.createQuery("from GroupData").list();
-      session.getTransaction().commit();
+    session.getTransaction().commit();
     session.close();
     return new Groups(result);
   }
 
-  public Contacts contacts(){
+  public Contacts contacts() {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     List<ContactData> result = session.createQuery("from ContactData where deprecated = '0000-00-00' ").list();
@@ -43,7 +44,7 @@ public class DbHelper {
     return new Contacts(result);
   }
 
-  public ContactData contactInGroup(){
+  public ContactData contactInGroup() {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     List<ContactData> result = session.createQuery("from ContactData where groups.size > 0 and deprecated = '0000-00-00'").list();
@@ -52,7 +53,7 @@ public class DbHelper {
     return result.iterator().next();
   }
 
-  public ContactData contactNotInGroup(){
+  public ContactData contactNotInGroup() {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     List<ContactData> result = session.createQuery("from ContactData where groups.size = 0 and deprecated = '0000-00-00'").list();
@@ -61,10 +62,10 @@ public class DbHelper {
     return result.iterator().next();
   }
 
-  public ContactData contactById(int id){
+  public ContactData contactById(int id) {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
-    List<ContactData> result = session.createQuery (String.format("from ContactData where id = %s ", id)).list();
+    List<ContactData> result = session.createQuery(String.format("from ContactData where id = %s ", id)).list();
     session.getTransaction().commit();
     session.close();
     return result.iterator().next();

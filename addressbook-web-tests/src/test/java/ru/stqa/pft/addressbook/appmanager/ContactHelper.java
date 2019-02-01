@@ -124,11 +124,10 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.xpath("//input[@name='remove']")).click();
   }
 
-  public void getGroupData(GroupData groupData){
+  public void getGroupData(GroupData groupData) {
     WebElement element = wd.findElement(By.xpath(String.format("//select[@name='group']/option[text() = '%s']", groupData.getName())));
     element.click();
   }
-
 
 
   public void initContactModification(int id) {

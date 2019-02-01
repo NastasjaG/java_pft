@@ -11,13 +11,13 @@ import java.util.stream.Collectors;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class ContactPhoneTests extends TestBase{
+public class ContactPhoneTests extends TestBase {
 
   @BeforeMethod
   public void insurePreconditions() {
     app.goTo().HomePage();
     Contacts before = app.contact().all();
-    for(ContactData contactData:before) {
+    for (ContactData contactData : before) {
       if (contactData.getMobilePhone() == null) {
         contactData.withMobilePhone(app.getProperties().getProperty("mobilePhone"));
       }
@@ -31,7 +31,7 @@ public class ContactPhoneTests extends TestBase{
   }
 
   @Test
-  public void testContactPhones(){
+  public void testContactPhones() {
     app.goTo().HomePage();
     ContactData contact = app.contact().all().iterator().next();
     ContactData contactInfoFromEditForm = app.contact().contactInfoFromEditForm(contact);
@@ -42,13 +42,13 @@ public class ContactPhoneTests extends TestBase{
   }
 
   private String mergePhones(ContactData contact) {
-    return Arrays.asList(contact.getHomePhone(),contact.getMobilePhone(),contact.getWorkPhone())
-            .stream().filter((s) ->!s.equals(""))
+    return Arrays.asList(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone())
+            .stream().filter((s) -> !s.equals(""))
             .map(ContactPhoneTests::cleaned)
             .collect(Collectors.joining("\n"));
   }
 
-  public static String cleaned(String phone){
-    return phone.replaceAll("\\s","").replaceAll("[-()]","");
-}
+  public static String cleaned(String phone) {
+    return phone.replaceAll("\\s", "").replaceAll("[-()]", "");
+  }
 }
