@@ -18,7 +18,7 @@ public class SoapTests extends TestBase{
 
   @BeforeMethod
   public void checkStatus() throws RemoteException, ServiceException, MalformedURLException {
-    skipIfNotFixed(1);
+    skipIfNotFixed(658);
   }
 
   @Test
