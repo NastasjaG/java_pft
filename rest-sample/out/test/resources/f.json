@@ -1,240 +1,8 @@
 {
-  "total": 84,
+  "total": 90,
   "page": 1,
   "limit": 20,
   "issues": [
-    {
-      "assignee_id": 0,
-      "category_id": 0,
-      "created": "2018-12-16T16:09:09+03:00",
-      "creator": {
-        "id": "1",
-        "created": "2018-06-10T14:55:23+03:00",
-        "updated": "2018-09-09T11:45:12+03:00",
-        "firstname": "admin",
-        "lastname": "admin",
-        "name": "admin admin",
-        "email": "admin@demo.com",
-        "username": "admin",
-        "notifications": {
-          "creator": true,
-          "assignee": true,
-          "following": true,
-          "commented": true,
-          "mychange": true,
-          "mentioned": true,
-          "allcreates": true
-        },
-        "groups": [],
-        "settings": {
-          "draft_issue": {
-            "date": "2018-09-09T11:45:12+03:00",
-            "issue": {
-              "project": "",
-              "category": "",
-              "priority": "1",
-              "assignee": "",
-              "milestone": "",
-              "subject": "NNG TestIssue",
-              "description": ""
-            }
-          }
-        },
-        "owner": true,
-        "timezone": "Europe\/Moscow",
-        "state": 1,
-        "api_key": "288f44776e7bec4bf44fdfeb1e646490"
-      },
-      "creator_id": 1,
-      "description": "Test description",
-      "id": 632,
-      "labels": [],
-      "milestone_id": 0,
-      "percentage": 0,
-      "priority": "1",
-      "priority_name": "Normal",
-      "project_id": 0,
-      "related_issue_ids": [],
-      "resolved": "1970-01-01T03:00:00+03:00",
-      "state": "0",
-      "state_name": "Open",
-      "subject": "Test issue",
-      "updated": "2018-12-16T16:09:09+03:00"
-    },
-    {
-      "assignee_id": 0,
-      "category_id": 0,
-      "created": "2018-12-16T16:17:40+03:00",
-      "creator": {
-        "id": "1",
-        "created": "2018-06-10T14:55:23+03:00",
-        "updated": "2018-09-09T11:45:12+03:00",
-        "firstname": "admin",
-        "lastname": "admin",
-        "name": "admin admin",
-        "email": "admin@demo.com",
-        "username": "admin",
-        "notifications": {
-          "creator": true,
-          "assignee": true,
-          "following": true,
-          "commented": true,
-          "mychange": true,
-          "mentioned": true,
-          "allcreates": true
-        },
-        "groups": [],
-        "settings": {
-          "draft_issue": {
-            "date": "2018-09-09T11:45:12+03:00",
-            "issue": {
-              "project": "",
-              "category": "",
-              "priority": "1",
-              "assignee": "",
-              "milestone": "",
-              "subject": "NNG TestIssue",
-              "description": ""
-            }
-          }
-        },
-        "owner": true,
-        "timezone": "Europe\/Moscow",
-        "state": 1,
-        "api_key": "288f44776e7bec4bf44fdfeb1e646490"
-      },
-      "creator_id": 1,
-      "description": "Test description",
-      "id": 633,
-      "labels": [],
-      "milestone_id": 0,
-      "percentage": 0,
-      "priority": "1",
-      "priority_name": "Normal",
-      "project_id": 0,
-      "related_issue_ids": [],
-      "resolved": "1970-01-01T03:00:00+03:00",
-      "state": "0",
-      "state_name": "Open",
-      "subject": "Test issue",
-      "updated": "2018-12-16T16:17:40+03:00"
-    },
-    {
-      "assignee_id": 0,
-      "category_id": 0,
-      "created": "2018-12-16T16:59:11+03:00",
-      "creator": {
-        "id": "1",
-        "created": "2018-06-10T14:55:23+03:00",
-        "updated": "2018-09-09T11:45:12+03:00",
-        "firstname": "admin",
-        "lastname": "admin",
-        "name": "admin admin",
-        "email": "admin@demo.com",
-        "username": "admin",
-        "notifications": {
-          "creator": true,
-          "assignee": true,
-          "following": true,
-          "commented": true,
-          "mychange": true,
-          "mentioned": true,
-          "allcreates": true
-        },
-        "groups": [],
-        "settings": {
-          "draft_issue": {
-            "date": "2018-09-09T11:45:12+03:00",
-            "issue": {
-              "project": "",
-              "category": "",
-              "priority": "1",
-              "assignee": "",
-              "milestone": "",
-              "subject": "NNG TestIssue",
-              "description": ""
-            }
-          }
-        },
-        "owner": true,
-        "timezone": "Europe\/Moscow",
-        "state": 1,
-        "api_key": "288f44776e7bec4bf44fdfeb1e646490"
-      },
-      "creator_id": 1,
-      "description": "Test description",
-      "id": 634,
-      "labels": [],
-      "milestone_id": 0,
-      "percentage": 0,
-      "priority": "1",
-      "priority_name": "Normal",
-      "project_id": 0,
-      "related_issue_ids": [],
-      "resolved": "1970-01-01T03:00:00+03:00",
-      "state": "0",
-      "state_name": "Open",
-      "subject": "Test issue",
-      "updated": "2018-12-16T16:59:12+03:00"
-    },
-    {
-      "assignee_id": 0,
-      "category_id": 0,
-      "created": "2018-12-16T16:59:21+03:00",
-      "creator": {
-        "id": "1",
-        "created": "2018-06-10T14:55:23+03:00",
-        "updated": "2018-09-09T11:45:12+03:00",
-        "firstname": "admin",
-        "lastname": "admin",
-        "name": "admin admin",
-        "email": "admin@demo.com",
-        "username": "admin",
-        "notifications": {
-          "creator": true,
-          "assignee": true,
-          "following": true,
-          "commented": true,
-          "mychange": true,
-          "mentioned": true,
-          "allcreates": true
-        },
-        "groups": [],
-        "settings": {
-          "draft_issue": {
-            "date": "2018-09-09T11:45:12+03:00",
-            "issue": {
-              "project": "",
-              "category": "",
-              "priority": "1",
-              "assignee": "",
-              "milestone": "",
-              "subject": "NNG TestIssue",
-              "description": ""
-            }
-          }
-        },
-        "owner": true,
-        "timezone": "Europe\/Moscow",
-        "state": 1,
-        "api_key": "288f44776e7bec4bf44fdfeb1e646490"
-      },
-      "creator_id": 1,
-      "description": "Test description",
-      "id": 635,
-      "labels": [],
-      "milestone_id": 0,
-      "percentage": 0,
-      "priority": "1",
-      "priority_name": "Normal",
-      "project_id": 0,
-      "related_issue_ids": [],
-      "resolved": "1970-01-01T03:00:00+03:00",
-      "state": "0",
-      "state_name": "Open",
-      "subject": "Test issue",
-      "updated": "2018-12-16T16:59:21+03:00"
-    },
     {
       "assignee_id": 0,
       "category_id": 0,
@@ -350,64 +118,6 @@
       "state_name": "Open",
       "subject": "Test issue_mar1",
       "updated": "2018-12-18T09:30:59+03:00"
-    },
-    {
-      "assignee_id": 0,
-      "category_id": 0,
-      "created": "2018-12-18T11:00:36+03:00",
-      "creator": {
-        "id": "1",
-        "created": "2018-06-10T14:55:23+03:00",
-        "updated": "2018-09-09T11:45:12+03:00",
-        "firstname": "admin",
-        "lastname": "admin",
-        "name": "admin admin",
-        "email": "admin@demo.com",
-        "username": "admin",
-        "notifications": {
-          "creator": true,
-          "assignee": true,
-          "following": true,
-          "commented": true,
-          "mychange": true,
-          "mentioned": true,
-          "allcreates": true
-        },
-        "groups": [],
-        "settings": {
-          "draft_issue": {
-            "date": "2018-09-09T11:45:12+03:00",
-            "issue": {
-              "project": "",
-              "category": "",
-              "priority": "1",
-              "assignee": "",
-              "milestone": "",
-              "subject": "NNG TestIssue",
-              "description": ""
-            }
-          }
-        },
-        "owner": true,
-        "timezone": "Europe\/Moscow",
-        "state": 1,
-        "api_key": "288f44776e7bec4bf44fdfeb1e646490"
-      },
-      "creator_id": 1,
-      "description": "New test issue",
-      "id": 638,
-      "labels": [],
-      "milestone_id": 0,
-      "percentage": 0,
-      "priority": "1",
-      "priority_name": "Normal",
-      "project_id": 0,
-      "related_issue_ids": [],
-      "resolved": "1970-01-01T03:00:00+03:00",
-      "state": "0",
-      "state_name": "Open",
-      "subject": "Test issue",
-      "updated": "2018-12-18T11:00:40+03:00"
     },
     {
       "assignee_id": 0,
@@ -1162,6 +872,296 @@
       "state_name": "Open",
       "subject": "Test issue",
       "updated": "2019-01-16T21:48:16+03:00"
+    },
+    {
+      "assignee_id": 0,
+      "category_id": 0,
+      "created": "2019-01-16T21:48:30+03:00",
+      "creator": {
+        "id": "1",
+        "created": "2018-06-10T14:55:23+03:00",
+        "updated": "2018-09-09T11:45:12+03:00",
+        "firstname": "admin",
+        "lastname": "admin",
+        "name": "admin admin",
+        "email": "admin@demo.com",
+        "username": "admin",
+        "notifications": {
+          "creator": true,
+          "assignee": true,
+          "following": true,
+          "commented": true,
+          "mychange": true,
+          "mentioned": true,
+          "allcreates": true
+        },
+        "groups": [],
+        "settings": {
+          "draft_issue": {
+            "date": "2018-09-09T11:45:12+03:00",
+            "issue": {
+              "project": "",
+              "category": "",
+              "priority": "1",
+              "assignee": "",
+              "milestone": "",
+              "subject": "NNG TestIssue",
+              "description": ""
+            }
+          }
+        },
+        "owner": true,
+        "timezone": "Europe\/Moscow",
+        "state": 1,
+        "api_key": "288f44776e7bec4bf44fdfeb1e646490"
+      },
+      "creator_id": 1,
+      "description": "New test issue",
+      "id": 654,
+      "labels": [],
+      "milestone_id": 0,
+      "percentage": 0,
+      "priority": "1",
+      "priority_name": "Normal",
+      "project_id": 0,
+      "related_issue_ids": [],
+      "resolved": "1970-01-01T03:00:00+03:00",
+      "state": "0",
+      "state_name": "Open",
+      "subject": "Test issue",
+      "updated": "2019-01-16T21:48:30+03:00"
+    },
+    {
+      "assignee_id": 0,
+      "category_id": 0,
+      "created": "2019-01-16T21:49:12+03:00",
+      "creator": {
+        "id": "1",
+        "created": "2018-06-10T14:55:23+03:00",
+        "updated": "2018-09-09T11:45:12+03:00",
+        "firstname": "admin",
+        "lastname": "admin",
+        "name": "admin admin",
+        "email": "admin@demo.com",
+        "username": "admin",
+        "notifications": {
+          "creator": true,
+          "assignee": true,
+          "following": true,
+          "commented": true,
+          "mychange": true,
+          "mentioned": true,
+          "allcreates": true
+        },
+        "groups": [],
+        "settings": {
+          "draft_issue": {
+            "date": "2018-09-09T11:45:12+03:00",
+            "issue": {
+              "project": "",
+              "category": "",
+              "priority": "1",
+              "assignee": "",
+              "milestone": "",
+              "subject": "NNG TestIssue",
+              "description": ""
+            }
+          }
+        },
+        "owner": true,
+        "timezone": "Europe\/Moscow",
+        "state": 1,
+        "api_key": "288f44776e7bec4bf44fdfeb1e646490"
+      },
+      "creator_id": 1,
+      "description": "New test issue",
+      "id": 655,
+      "labels": [],
+      "milestone_id": 0,
+      "percentage": 0,
+      "priority": "1",
+      "priority_name": "Normal",
+      "project_id": 0,
+      "related_issue_ids": [],
+      "resolved": "1970-01-01T03:00:00+03:00",
+      "state": "0",
+      "state_name": "Open",
+      "subject": "Test issue",
+      "updated": "2019-01-16T21:49:12+03:00"
+    },
+    {
+      "assignee_id": 0,
+      "category_id": 0,
+      "created": "2019-01-16T21:49:40+03:00",
+      "creator": {
+        "id": "1",
+        "created": "2018-06-10T14:55:23+03:00",
+        "updated": "2018-09-09T11:45:12+03:00",
+        "firstname": "admin",
+        "lastname": "admin",
+        "name": "admin admin",
+        "email": "admin@demo.com",
+        "username": "admin",
+        "notifications": {
+          "creator": true,
+          "assignee": true,
+          "following": true,
+          "commented": true,
+          "mychange": true,
+          "mentioned": true,
+          "allcreates": true
+        },
+        "groups": [],
+        "settings": {
+          "draft_issue": {
+            "date": "2018-09-09T11:45:12+03:00",
+            "issue": {
+              "project": "",
+              "category": "",
+              "priority": "1",
+              "assignee": "",
+              "milestone": "",
+              "subject": "NNG TestIssue",
+              "description": ""
+            }
+          }
+        },
+        "owner": true,
+        "timezone": "Europe\/Moscow",
+        "state": 1,
+        "api_key": "288f44776e7bec4bf44fdfeb1e646490"
+      },
+      "creator_id": 1,
+      "description": "New test issue",
+      "id": 656,
+      "labels": [],
+      "milestone_id": 0,
+      "percentage": 0,
+      "priority": "1",
+      "priority_name": "Normal",
+      "project_id": 0,
+      "related_issue_ids": [],
+      "resolved": "1970-01-01T03:00:00+03:00",
+      "state": "0",
+      "state_name": "Open",
+      "subject": "Test issue",
+      "updated": "2019-01-16T21:49:41+03:00"
+    },
+    {
+      "assignee_id": 0,
+      "category_id": 0,
+      "created": "2019-01-16T21:55:50+03:00",
+      "creator": {
+        "id": "1",
+        "created": "2018-06-10T14:55:23+03:00",
+        "updated": "2018-09-09T11:45:12+03:00",
+        "firstname": "admin",
+        "lastname": "admin",
+        "name": "admin admin",
+        "email": "admin@demo.com",
+        "username": "admin",
+        "notifications": {
+          "creator": true,
+          "assignee": true,
+          "following": true,
+          "commented": true,
+          "mychange": true,
+          "mentioned": true,
+          "allcreates": true
+        },
+        "groups": [],
+        "settings": {
+          "draft_issue": {
+            "date": "2018-09-09T11:45:12+03:00",
+            "issue": {
+              "project": "",
+              "category": "",
+              "priority": "1",
+              "assignee": "",
+              "milestone": "",
+              "subject": "NNG TestIssue",
+              "description": ""
+            }
+          }
+        },
+        "owner": true,
+        "timezone": "Europe\/Moscow",
+        "state": 1,
+        "api_key": "288f44776e7bec4bf44fdfeb1e646490"
+      },
+      "creator_id": 1,
+      "description": "New test issue",
+      "id": 657,
+      "labels": [],
+      "milestone_id": 0,
+      "percentage": 0,
+      "priority": "1",
+      "priority_name": "Normal",
+      "project_id": 0,
+      "related_issue_ids": [],
+      "resolved": "1970-01-01T03:00:00+03:00",
+      "state": "0",
+      "state_name": "Open",
+      "subject": "Test issue",
+      "updated": "2019-01-16T21:55:50+03:00"
+    },
+    {
+      "assignee_id": 0,
+      "category_id": 0,
+      "created": "2019-01-16T21:58:30+03:00",
+      "creator": {
+        "id": "1",
+        "created": "2018-06-10T14:55:23+03:00",
+        "updated": "2018-09-09T11:45:12+03:00",
+        "firstname": "admin",
+        "lastname": "admin",
+        "name": "admin admin",
+        "email": "admin@demo.com",
+        "username": "admin",
+        "notifications": {
+          "creator": true,
+          "assignee": true,
+          "following": true,
+          "commented": true,
+          "mychange": true,
+          "mentioned": true,
+          "allcreates": true
+        },
+        "groups": [],
+        "settings": {
+          "draft_issue": {
+            "date": "2018-09-09T11:45:12+03:00",
+            "issue": {
+              "project": "",
+              "category": "",
+              "priority": "1",
+              "assignee": "",
+              "milestone": "",
+              "subject": "NNG TestIssue",
+              "description": ""
+            }
+          }
+        },
+        "owner": true,
+        "timezone": "Europe\/Moscow",
+        "state": 1,
+        "api_key": "288f44776e7bec4bf44fdfeb1e646490"
+      },
+      "creator_id": 1,
+      "description": "New test issue",
+      "id": 658,
+      "labels": [],
+      "milestone_id": 0,
+      "percentage": 0,
+      "priority": "1",
+      "priority_name": "Normal",
+      "project_id": 0,
+      "related_issue_ids": [],
+      "resolved": "1970-01-01T03:00:00+03:00",
+      "state": "0",
+      "state_name": "Open",
+      "subject": "Test issue",
+      "updated": "2019-01-16T21:58:30+03:00"
     }
   ]
 }
