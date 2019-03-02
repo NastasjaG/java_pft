@@ -9,7 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.io.IOException;
 
-public class usingHttClient {
+public class UsingHttClient {
 
 
   @Test
@@ -17,7 +17,7 @@ public class usingHttClient {
     Assert.assertEquals(getResponse().getStatus(),"error");
   }
 
-  private responseFields getResponse() throws IOException {
+  private ResponseFields getResponse() throws IOException {
     String json = Request.Get("https://newsapi.org/v2/top-headlines?source=time&apiKey=it_is_not_a_key")
             .execute().returnResponse().toString();
 
@@ -26,7 +26,7 @@ public class usingHttClient {
 
 
     JsonElement parsed = new JsonParser().parse(json);
-    return new Gson().fromJson(parsed,new TypeToken<responseFields>(){}.getType());
+    return new Gson().fromJson(parsed,new TypeToken<ResponseFields>(){}.getType());
   }
 }
 

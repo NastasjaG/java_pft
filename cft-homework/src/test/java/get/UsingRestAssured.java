@@ -8,18 +8,18 @@ import java.io.IOException;
 
 import com.jayway.restassured.RestAssured;
 
-public class usingRestAssured {
+public class UsingRestAssured {
 
   @Test
   public void testResponse() throws IOException {
 
-     responseFields responseFields = new responseFields();
-    String status = createStatus(responseFields);
+     ResponseFields ResponseFields = new ResponseFields();
+    String status = createStatus(ResponseFields);
     Assert.assertEquals(status,"\"error\"");
   }
-  private String createStatus(responseFields responseFields) {
+  private String createStatus(ResponseFields ResponseFields) {
     String json = RestAssured.given()
-            .parameter("status", responseFields.getStatus())
+            .parameter("status", ResponseFields.getStatus())
             .get("https://newsapi.org/v2/top-headlines?source=time&apiKey=it_is_not_a_key").asString();
     JsonElement parsed = new JsonParser().parse(json);
     return parsed.getAsJsonObject().get("status").toString();

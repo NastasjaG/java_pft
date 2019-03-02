@@ -11,7 +11,7 @@ import org.openqa.selenium.interactions.Actions;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class video {
+public class Video {
   private WebDriver wd;
 
   @BeforeMethod(alwaysRun = true)

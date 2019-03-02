@@ -1,6 +1,6 @@
 package get;
 
-public class responseFields {
+public class ResponseFields {
 
   private String status;
   private String message;

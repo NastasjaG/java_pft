@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GitHub-cft-homework.iml" filepath="$PROJECT_DIR$/.idea/modules/GitHub-cft-homework.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GitHub-cft-homework_main.iml" filepath="$PROJECT_DIR$/.idea/modules/GitHub-cft-homework_main.iml" group="cft-homework" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GitHub-cft-homework_test.iml" filepath="$PROJECT_DIR$/.idea/modules/GitHub-cft-homework_test.iml" group="cft-homework" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests.iml" />
